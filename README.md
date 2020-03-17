@@ -1,3 +1,5 @@
 # movingDots
 
-This is simulation of the spread of a virus inspired by being stuck at home in social distancing done in Processing.
+This is a simulation of the spread of a virus done in Processing.
+
+Inspired by being stuck at home in social distancing. #coronavirus #stayathome
