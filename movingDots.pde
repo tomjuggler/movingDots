@@ -12,6 +12,8 @@ int healthColor = 100;
 int recoverColor = 200;
 int myColor = 100;
 int mySickDur = 0;
+int health = 0;
+boolean finished = false;
 
 void setup() {
   size(1280, 720);
@@ -38,9 +40,15 @@ void setup() {
 }
 
 void draw() {
-  
-  background(0);
-  
+  if(finished){
+    if(myColor==healthColor){
+     background(healthColor, 255, 255, 255); 
+    } else{
+     background(sickColor, 255, 255, 255);
+    }
+  } else{
+   background(0);
+  }
   if(myColor == sickColor){
     mySickDur++;
     if(mySickDur > recoverTime){
@@ -66,8 +74,17 @@ void draw() {
     stroke(dotColor[i],255,255);
     point(location.x, location.y);
   }
-  
+  health = 0;
   for (int i=0; i<nDots; i++) {
+    //check for health of all:
+    if(dotColor[i]==sickColor || dotColor[i]==recoverColor){
+      health++;
+      //println(health);
+      if(health > 150){
+        finished = true;
+        println("finished");
+      }
+    }
     
     PVector location = allLocs[i];
     PVector velocity = allVelocs[i];
@@ -84,7 +101,6 @@ void draw() {
       if (location.dist(allLocs[j]) < sz && i!=j && dotColor[i]==sickColor){
         dotColor[j] = sickColor;
       }
-///////////////////////////////////check mouse location now: /////////////////////////////////////////// 
       //dots infecting me:
       PVector myLoc = new PVector(mouseX, mouseY);
       if (location.dist(myLoc) < sz && i!=j && dotColor[i]==sickColor){
@@ -95,8 +111,7 @@ void draw() {
         if (myLoc.dist(allLocs[j]) < sz && i!=j){
         dotColor[j] = sickColor;
       }
-      }
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+     }
     }
     
   }
