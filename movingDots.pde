@@ -41,11 +41,12 @@ void setup() {
 
 void draw() {
   if(finished){
-    if(myColor==healthColor){
-     background(healthColor, 255, 255, 255); 
-    } else{
-     background(sickColor, 255, 255, 255);
-    }
+    background(255);
+    //if(myColor==healthColor){
+     //background(healthColor, 255, 255, 255); 
+    //} else{
+    // background(sickColor, 255, 255, 255);
+    //}
   } else{
    background(0);
   }
@@ -77,10 +78,12 @@ void draw() {
   health = 0;
   for (int i=0; i<nDots; i++) {
     //check for health of all:
-    if(dotColor[i]==sickColor || dotColor[i]==recoverColor){
+    
+    //if(dotColor[i]==sickColor || dotColor[i]==recoverColor){
+          if(dotColor[i]==recoverColor){
       health++;
       //println(health);
-      if(health > 150){
+      if(health > 180){
         finished = true;
         println("finished");
       }
