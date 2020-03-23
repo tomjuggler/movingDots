@@ -16,7 +16,7 @@ int health = 0;
 boolean finished = false;
 
 void setup() {
-  size(720, 720);
+  size(1280, 720);
   background(0);
   strokeWeight(sz);
   colorMode(HSB, 255, 255, 255);
@@ -116,3 +116,4 @@ void draw() {
     
   }
 }
+

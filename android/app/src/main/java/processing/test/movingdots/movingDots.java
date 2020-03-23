@@ -1,11 +1,29 @@
+package processing.test.movingdots;
+
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class movingDots extends PApplet {
+
 int nDots = 200;
 float speed = 2;
 int[] dotColor = new int[nDots];
 PVector[] allLocs = new PVector[nDots];
 PVector[] allVelocs = new PVector[nDots];
 int[] sickDur = new int[nDots];
-float sz = 5.0;
-float socialDistance = 0.5;
+float sz = 5.0f;
+float socialDistance = 0.5f;
 int recoverTime = 1000;
 int sickColor = 10;
 int healthColor = 100;
@@ -15,8 +33,8 @@ int mySickDur = 0;
 int health = 0;
 boolean finished = false;
 
-void setup() {
-  size(720, 720);
+public void setup() {
+  
   background(0);
   strokeWeight(sz);
   colorMode(HSB, 255, 255, 255);
@@ -39,7 +57,7 @@ void setup() {
   }
 }
 
-void draw() {
+public void draw() {
   if(finished){
     if(myColor==healthColor){
      background(healthColor, 255, 255, 255); 
@@ -115,4 +133,6 @@ void draw() {
     }
     
   }
+}
+  public void settings() {  size(720, 720); }
 }
